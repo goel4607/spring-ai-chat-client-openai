@@ -1,4 +1,4 @@
-package com.goel4607.chatclientopenai;
+package com.goel4607.chatclient;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

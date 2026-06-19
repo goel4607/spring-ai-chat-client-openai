@@ -1,4 +1,4 @@
-package com.goel4607.chatclientopenai;
+package com.goel4607.chatclient;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.goel4607.chatclientopenai;
+package com.goel4607.chatclient;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

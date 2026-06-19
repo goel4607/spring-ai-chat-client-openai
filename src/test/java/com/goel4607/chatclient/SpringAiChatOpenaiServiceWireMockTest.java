@@ -1,4 +1,4 @@
-package com.goel4607.chatclientopenai;
+package com.goel4607.chatclient;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.tomakehurst.wiremock.client.ResponseDefinitionBuilder;
