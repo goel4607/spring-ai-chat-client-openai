@@ -35,7 +35,7 @@ public class SelfEvaluationChatService implements ChatService{
         EvaluationRequest evaluationRequest = new EvaluationRequest(question, answer);
         EvaluationResponse evaluationResponse = this.relevancyEvaluator.evaluate(evaluationRequest);
         if (!evaluationResponse.isPass()) {
-            System.out.println("Failed evaluation!!");
+            System.out.println("Failed evaluation!! supporting data => " + this.relevancyEvaluator.doGetSupportingData(evaluationRequest));
             throw new AnswerNotRelevantException(question, answer);
         }
     }
