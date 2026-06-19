@@ -1,5 +1,6 @@
 package com.goel4607.chatclient;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AskController {
     private final ChatService service;
 
-    public AskController(SpringAiChatService service) {
+    public AskController(@Qualifier("selfEvaluationChatService") ChatService service) {
         this.service = service;
     }
 
