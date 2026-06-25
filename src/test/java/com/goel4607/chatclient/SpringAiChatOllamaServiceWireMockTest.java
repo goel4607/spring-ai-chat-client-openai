@@ -6,7 +6,6 @@ import com.github.tomakehurst.wiremock.client.WireMock;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +25,7 @@ public class SpringAiChatOllamaServiceWireMockTest {
     Resource responseResource;
 
     @Autowired
-    ChatClient.Builder chatClientBuilder;
+    SpringAiChatService springAiChatService;
 
     @BeforeEach
     public void setup() throws IOException  {
@@ -37,10 +36,17 @@ public class SpringAiChatOllamaServiceWireMockTest {
         WireMock.stubFor(WireMock.post("/api/chat").willReturn(ResponseDefinitionBuilder.okForJson(responseNode)));
     }
 
+//    @Test
+//    public void askQuestion() {
+//        var springAiService = new SpringAiChatService(this.chatClientBuilder);
+//        var answer = springAiService.askQuestion(new Question("What is the capital of France?"));
+//        Assertions.assertNotNull(answer);
+//        Assertions.assertEquals("Paris", answer.answer());
+//    }
+
     @Test
     public void askQuestion() {
-        var springAiService = new SpringAiChatService(this.chatClientBuilder);
-        var answer = springAiService.askQuestion(new Question("What is the capital of France?"));
+        var answer = springAiChatService.askQuestion(new Question("checkers","How many pieces are there?"));
         Assertions.assertNotNull(answer);
         Assertions.assertEquals("Paris", answer.answer());
     }

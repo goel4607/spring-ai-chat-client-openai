@@ -23,12 +23,12 @@ public class SelfEvaluationChatService implements ChatService{
     public Answer askQuestion(Question question) {
         var answer = this.chatClient.prompt().user(question.question()).call().content();
         evaluateRelevancy(question.question(), answer);
-        return new Answer(answer);
+        return new Answer(question.gameTitle(), answer);
     }
 
     @Recover
     public Answer recover(AnswerNotRelevantException e) {
-        return new Answer("I'm sorry, I wasn't able to answer the question.");
+        return new Answer("no title", "I'm sorry, I wasn't able to answer the question.");
     }
 
     private void evaluateRelevancy(String question, String answer) {
